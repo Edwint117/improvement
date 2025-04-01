@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer & Todo Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Todo Container -->
+        <div class="grid-item" id="todoContainer">
+            <div class="container">
+                <h1>Todo List</h1>
+                <div class="todo-container">
+                    <div class="todo-input">
+                        <input type="text" id="todoInput" placeholder="Add a new task...">
+                        <button id="addTodoBtn" class="btn">Add</button>
+                    </div>
+                    <div id="todoList" class="todo-list">
+                        <!-- Todo items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Points Container -->
+        <div class="grid-item" id="pointsContainer">
+            <div class="container">
+                <h1>Level & Points</h1>
+                <div class="points-container">
+                    <div class="level-display">
+                        <div class="level">Level <span id="currentLevel">1</span></div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div id="levelProgress" class="progress-fill"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="currentPoints">0</span> / <span id="nextLevelPoints">100</span> points
+                            </div>
+                        </div>
+                    </div>
+                    <div class="points-display">
+                        <span id="totalPoints">0</span>
+                        <span class="points-label">total points</span>
+                    </div>
+                    <div class="points-breakdown">
+                        <div>Timer Points: <span id="timerPoints">0</span></div>
+                        <div>Todo Points: <span id="todoPoints">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Container -->
+        <div class="grid-item" id="timerContainer">
+            <div class="container">
+                <h1>Countdown Timer</h1>
+                <div class="timer-container">
+                    <div id="timer" class="timer">00:00</div>
+                    <div class="controls">
+                        <div class="time-selector">
+                            <label for="timeInput">Select Time (minutes):</label>
+                            <input type="number" id="timeInput" min="1" max="120" value="5">
+                        </div>
+                        <div class="buttons">
+                            <button id="startBtn" class="btn">Start</button>
+                            <button id="pauseBtn" class="btn hidden">Pause</button>
+                            <button id="stopBtn" class="btn" disabled>Stop</button>
+                        </div>
+                    </div>
+                    <div class="time-history">
+                        <h2>Previous Times</h2>
+                        <div id="timeBlocks" class="time-blocks">
+                            <!-- Time blocks will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
